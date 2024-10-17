@@ -1,0 +1,270 @@
+:root {
+  --p1-color: #FFC60B;
+  --p2-color: #EEEFEF;
+  --p3-color: #0D0D0D;
+  --light-color: #BAB9B9;
+  --s-text: 2vh;
+  --b-text: 5vh;
+  --font: "Montserrat", sans-serif;
+  --normal-font: 400;
+  --bold-font: 700;
+  --universal-gap: 1vh;
+  --universal-radius: .5vh;
+}
+
+* {
+  font-family: var(--font);
+  font-weight: var(--normal-font);
+  font-size: var(--s-text);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  color: var(--p3-color);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body {
+  background: var(--p2-color);
+}
+body #everything {
+  min-height: 100vh;
+  margin: 0 30vh;
+  padding: var(--universal-gap);
+  border-left: 0.2vh solid var(--light-color);
+  border-right: 0.2vh solid var(--light-color);
+}
+body #everything .SearchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: var(--universal-gap);
+  height: 5vh;
+}
+body #everything .SearchBar .profile-btn {
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+  border-radius: var(--universal-radius);
+  border: 0.2vh solid var(--p3-color);
+}
+body #everything .SearchBar .search-input {
+  width: 100%;
+  border: 0.2vh solid var(--light-color);
+  border-radius: var(--universal-radius);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+body #everything .SearchBar .search-input input {
+  width: 100%;
+  padding: 0 2vh;
+  height: 100%;
+  background: none;
+}
+body #everything .SearchBar .search-btn {
+  border: 0.2vh solid var(--light-color);
+  border-radius: var(--universal-radius);
+  padding: 1vh;
+  cursor: pointer;
+  background: var(--p1-color);
+}
+body #everything .You-Board {
+  background: var(--p3-color);
+  margin-top: var(--universal-gap);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--universal-gap);
+}
+body #everything .You-Board .text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+body #everything .You-Board .s-text {
+  color: var(--p2-color);
+  margin-bottom: -1vh;
+}
+body #everything .You-Board .b-text {
+  color: var(--p2-color);
+  font-size: var(--b-text);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--universal-gap);
+}
+body #everything .You-Board .b-text .logo {
+  height: calc(var(--b-text) + 2vh);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body #everything .You-Board .b-text .logo img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body #everything .search-page {
+  display: grid;
+  gap: 0.1vh;
+  margin: 0.1vh;
+  grid-template-columns: auto auto auto auto auto;
+}
+body #everything .search-page .you-card {
+  cursor: pointer;
+  width: auto;
+  height: 30vh;
+  background: var(--p3-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+body #everything .search-page .you-card:hover .photo img {
+  transition: 0.2s ease;
+  filter: none !important;
+}
+body #everything .search-page .you-card .rank {
+  position: absolute;
+  top: 1vh;
+  left: 1vh;
+  background: var(--p3-color);
+  padding: 1vh;
+  color: var(--p2-color);
+  font-weight: var(--bold-font);
+  z-index: 1;
+}
+body #everything .search-page .you-card .name {
+  position: absolute;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--p2-color);
+  font-weight: var(--bold-font);
+  white-space: nowrap;
+  z-index: 1;
+}
+body #everything .search-page .you-card .photo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+body #everything .search-page .you-card .photo img {
+  filter: grayscale(100%);
+  z-index: 0;
+}
+body #everything .search-page .you-card .photo .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, var(--p3-color), transparent);
+  z-index: 1;
+}
+body #everything .go-back-btn-user-page {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--universal-gap);
+}
+body #everything .go-back-btn-user-page .go-back-btn {
+  cursor: pointer;
+}
+body #everything .go-back-btn-user-page .go-back-btn:hover {
+  opacity: 50%;
+}
+body #everything .go-back-btn-user-page .like-btn {
+  width: 5vh;
+  height: 5vh;
+  fill: var(--p2-color);
+  border: 0.2vh solid var(--p3-color);
+  padding: 1vh;
+  border-radius: 100%;
+}
+body #everything .user-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--universal-gap);
+}
+body #everything .user-page .rank-bg {
+  background: var(--p1-color);
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  border-bottom: 0.3vh solid var(--p3-color);
+}
+body #everything .user-page .rank-bg .rank {
+  font-size: 14vh;
+  font-weight: var(--bold-font);
+}
+body #everything .user-page .rank-bg .photo {
+  width: 20vh;
+  height: 20vh;
+  position: absolute;
+  bottom: -50%;
+  transform: translateY(-50%);
+  border: 0.3vh solid var(--p3-color);
+}
+body #everything .user-page .rank-bg .photo .profile-informations {
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--universal-gap);
+}
+body #everything .user-page .rank-bg .photo .profile-informations .name {
+  font-size: var(--b-text);
+  white-space: nowrap;
+}
+body #everything .user-page .rank-bg .photo .profile-informations .description {
+  width: 50vh;
+  text-align: center;
+}
+body #everything .user-page .work-station {
+  margin-top: 30vh;
+}
+body #everything .user-page .work-station .work-header {
+  border-top: 0.3vh solid var(--p3-color);
+  border-bottom: 0.3vh solid var(--p3-color);
+  text-align: center;
+  font-size: var(--b-text);
+  font-weight: var(--bold-font);
+}
+body #everything .user-page .work-station .works {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: var(--universal-gap);
+  margin-top: var(--universal-gap);
+}
+body #everything .user-page .work-station .works .work {
+  width: 100%;
+  height: 30vh;
+  cursor: pointer;
+  background: var(--p3-color);
+}
+body #everything .user-page .work-station .works .work:hover {
+  opacity: 50%;
+}/*# sourceMappingURL=index.css.map */
