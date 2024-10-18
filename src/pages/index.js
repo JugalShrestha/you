@@ -1,4 +1,5 @@
 import SearchPage from "./SearchPage";
 import UserPage from "./UserPage";
+import LoginPage from "./LoginPage";
 
-export {SearchPage, UserPage}
+export {SearchPage, LoginPage, UserPage}

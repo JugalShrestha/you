@@ -33,6 +33,7 @@ img {
 
 body {
   background: var(--p2-color);
+  min-height: 100vh;
 }
 body #everything {
   min-height: 100vh;
@@ -40,6 +41,20 @@ body #everything {
   padding: var(--universal-gap);
   border-left: 0.2vh solid var(--light-color);
   border-right: 0.2vh solid var(--light-color);
+}
+body #everything .go-back-btn-user-page {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--universal-gap);
+}
+body #everything .go-back-btn-user-page .go-back-btn {
+  cursor: pointer;
+}
+body #everything .go-back-btn-user-page .go-back-btn:hover {
+  opacity: 50%;
 }
 body #everything .SearchBar {
   width: 100%;
@@ -50,7 +65,7 @@ body #everything .SearchBar {
 }
 body #everything .SearchBar .profile-btn {
   height: 100%;
-  width: auto;
+  width: 5vh;
   overflow: hidden;
   border-radius: var(--universal-radius);
   border: 0.2vh solid var(--p3-color);
@@ -119,8 +134,8 @@ body #everything .You-Board .b-text .logo img {
 body #everything .search-page {
   display: grid;
   gap: 0.1vh;
-  margin: 0.1vh;
-  grid-template-columns: auto auto auto auto auto;
+  margin: 0.1vh 0;
+  grid-template-columns: 25% 25% 25% auto;
 }
 body #everything .search-page .you-card {
   cursor: pointer;
@@ -175,35 +190,28 @@ body #everything .search-page .you-card .photo .overlay {
   background: linear-gradient(to top, var(--p3-color), transparent);
   z-index: 1;
 }
-body #everything .go-back-btn-user-page {
+body #everything .user-page {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--universal-gap);
+}
+body #everything .user-page .go-back-btn-user-page {
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: var(--universal-gap);
 }
-body #everything .go-back-btn-user-page .go-back-btn {
+body #everything .user-page .go-back-btn-user-page .go-back-btn {
   cursor: pointer;
 }
-body #everything .go-back-btn-user-page .go-back-btn:hover {
+body #everything .user-page .go-back-btn-user-page .go-back-btn:hover {
   opacity: 50%;
-}
-body #everything .go-back-btn-user-page .like-btn {
-  width: 5vh;
-  height: 5vh;
-  fill: var(--p2-color);
-  border: 0.2vh solid var(--p3-color);
-  padding: 1vh;
-  border-radius: 100%;
-}
-body #everything .user-page {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-top: var(--universal-gap);
 }
 body #everything .user-page .rank-bg {
   background: var(--p1-color);
@@ -215,6 +223,11 @@ body #everything .user-page .rank-bg {
   height: 40vh;
   border-bottom: 0.3vh solid var(--p3-color);
 }
+body #everything .user-page .rank-bg .go-back-btn-user-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 body #everything .user-page .rank-bg .rank {
   font-size: 14vh;
   font-weight: var(--bold-font);
@@ -225,6 +238,7 @@ body #everything .user-page .rank-bg .photo {
   position: absolute;
   bottom: -50%;
   transform: translateY(-50%);
+  background: var(--p3-color);
   border: 0.3vh solid var(--p3-color);
 }
 body #everything .user-page .rank-bg .photo .profile-informations {
@@ -243,6 +257,61 @@ body #everything .user-page .rank-bg .photo .profile-informations .description {
   width: 50vh;
   text-align: center;
 }
+body #everything .user-page .rank-bg .photo .like-counter {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  transform: translateY(-50%);
+  background-color: var(--p1-color);
+  padding: 1vh;
+  border-radius: 100%;
+  width: 5vh;
+  height: 5vh;
+  border: 0.3vh solid var(--p3-color);
+}
+body #everything .user-page .rank-bg .photo .like-counter:hover {
+  background-color: var(--p3-color);
+}
+body #everything .user-page .rank-bg .photo .like-counter:hover .upvote-btn {
+  fill: var(--p1-color);
+}
+body #everything .user-page .rank-bg .photo .like-counter .text {
+  position: absolute;
+  bottom: -70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body #everything .user-page .rank-bg .photo .contact-section {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -50%;
+  background-color: var(--p1-color);
+  padding: 1vh;
+  border-radius: 100%;
+  width: 5vh;
+  height: 5vh;
+  border: 0.3vh solid var(--p3-color);
+}
+body #everything .user-page .rank-bg .photo .contact-section:hover {
+  background-color: var(--p3-color);
+}
+body #everything .user-page .rank-bg .photo .contact-section:hover .contact-btn {
+  fill: var(--p1-color);
+}
+body #everything .user-page .rank-bg .photo .contact-section .text {
+  position: absolute;
+  bottom: -70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body #everything .user-page .rank-bg .photo .contact-btn, body #everything .user-page .rank-bg .photo .upvote-btn {
+  width: 100%;
+  height: 100%;
+  fill: var(--p3-color);
+}
 body #everything .user-page .work-station {
   margin-top: 30vh;
 }
@@ -254,17 +323,135 @@ body #everything .user-page .work-station .work-header {
   font-weight: var(--bold-font);
 }
 body #everything .user-page .work-station .works {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: var(--universal-gap);
-  margin-top: var(--universal-gap);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 body #everything .user-page .work-station .works .work {
   width: 100%;
-  height: 30vh;
-  cursor: pointer;
-  background: var(--p3-color);
+  border-bottom: 0.3vh solid var(--light-color);
+  padding: var(--universal-gap);
+  text-decoration: none;
 }
 body #everything .user-page .work-station .works .work:hover {
   opacity: 50%;
+}
+body #everything .login-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--universal-gap);
+}
+body #everything .login-page .profile-card {
+  width: 100%;
+  cursor: pointer;
+  margin-top: var(--universal-gap);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--universal-radius);
+  border: 0.3vh solid var(--p3-color);
+  padding: var(--universal-gap);
+}
+body #everything .login-page .profile-card:hover {
+  opacity: 50%;
+}
+body #everything .login-page .profile-card .photo {
+  width: 5vh;
+  height: 5vh;
+}
+body #everything .login-page .delete-btn {
+  background: red;
+  width: 100%;
+  padding: var(--universal-gap);
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-weight: var(--bold-font);
+}
+body #everything .login-page .delete-btn:hover {
+  opacity: 50%;
+}
+body #everything .login-page .logout-btn {
+  border: 0.3vh solid var(--light-color);
+  border-radius: var(--universal-radius);
+  padding: var(--universal-gap);
+  background: var(--p1-color);
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10vh;
+  text-align: center;
+}
+body #everything .login-page .logout-btn:hover {
+  opacity: 50%;
+}
+body #everything .login-page .header {
+  font-size: var(--b-text);
+  font-weight: var(--bold-font);
+  text-transform: uppercase;
+  padding: var(--universal-gap);
+}
+body #everything .login-page .credential {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--universal-gap);
+  width: 100%;
+}
+body #everything .login-page .credential input {
+  width: 100%;
+  border: 0.3vh solid var(--p3-color);
+  padding: var(--universal-gap);
+  border-radius: var(--universal-radius);
+}
+body #everything .login-page .login-btn {
+  padding: var(--universal-gap);
+  border-radius: var(--universal-radius);
+  background: var(--p1-color);
+  cursor: pointer;
+  width: 100%;
+}
+body #everything .login-page .credentials {
+  border: 0.3vh solid var(--p3-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--universal-gap);
+  background: var(--light-color);
+  padding: var(--universal-gap);
+  border-radius: var(--universal-radius);
+  width: 100%;
+}
+body #everything .login-page .credentials .sign-up {
+  cursor: pointer;
+  -webkit-text-decoration: 0.2vh underline var(--p3-color);
+          text-decoration: 0.2vh underline var(--p3-color);
+}
+body #everything .login-page .credentials textarea {
+  resize: none;
+  width: 100%;
+  height: 10vh;
+}
+body #everything .login-page .credentials .add-work {
+  padding: var(--universal-gap);
+  border-radius: var(--universal-radius);
+}
+body #everything .login-page .added-work {
+  width: 100%;
+  font-size: 1vh;
+  word-wrap: break-word;
+}
+
+@media (max-width: 780px) {
+  :root {
+    --s-text: 1.7vh !important;
+    --b-text: 3vh !important;
+  }
+  #everything {
+    margin: 0 !important;
+  }
 }/*# sourceMappingURL=index.css.map */

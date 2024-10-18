@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom"
 
 const YouBoard = () => {
   return (
-    <div className="You-Board">
+    <Link to={'/'} className="You-Board">
         <div className="text">
             <div className="s-text">Live ranking</div>
             <div className="b-text">
@@ -11,7 +12,7 @@ const YouBoard = () => {
                 leader board
             </div>
         </div>
-    </div>
+    </Link>
   )
 }
 

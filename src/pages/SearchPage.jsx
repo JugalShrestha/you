@@ -1,36 +1,64 @@
-// import YouCard from "../components/YouCard"; // Ensure this is correctly imported
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from "../../firebase";
-import { useState, useEffect } from "react";
 import { YouCard } from '../components';
+import { useNavigate, useLocation } from 'react-router-dom';
+import GoBackBtnUserPage from '../components/GoBackBtnUserPage';
+import { useAppContext } from '../../useAppContext';
 
 const SearchPage = () => {
-  const [data, setData] = useState([]); // Ensure this is always an array
+  const navigate = useNavigate();
+  const location = useLocation();
+  const search = new URLSearchParams(location.search);
+  const searchResult = search.get("query") || "";
+  const {data} = useAppContext();
 
-  // Function to fetch data
-  const fetchData = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "you_sers"));
-      const fetchedData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      setData(fetchedData); // Set fetched data
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-     }
+  const handleClick = (item) => {
+    console.log(item);
+    navigate(`/detail/${item.id}`, { state: { item } });
   };
 
-  // Fetch data when the component is mounted
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const filteredData = data.filter((user)=>
+    user.name.toLowerCase().includes(searchResult)
+  )
 
   return (
-    <div className="search-page">
-      {data.map((item,index) => (
-        <YouCard key={index} rank={item.rank} name={item.name}/>
-        ))
-      }
-    </div>
+    <>
+    {
+      searchResult ? 
+      <>
+        <GoBackBtnUserPage/>
+        <div className="search-page">
+          {
+            filteredData.length >0 ?
+            filteredData.map((item) => (
+                <YouCard 
+                  onClick={() => handleClick(item)} 
+                  key={item.id}
+                  rank={item.rank} 
+                  name={item.name} 
+                  photo={item.profileImage}
+                />
+            ))
+            :
+            `no ${searchResult} found!`
+        }
+        </div>
+      </> 
+      :
+      <>
+        <div className="search-page">
+          {data.map((item) => (
+            <YouCard 
+              onClick={() => handleClick(item)} 
+              key={item.id}
+              rank={item.rank} 
+              name={item.name} 
+              profileImage={item.profileImage}
+            />
+          ))}
+        </div>
+    </>
+    }
+    </>
   );
-}
+};
 
 export default SearchPage;

@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom"
 import PropTypes from 'prop-types';
 
-const YouCard = ({name,rank}) => {
+const YouCard = ({name,profileImage,rank,onClick}) => {
+  
   return (
-    <Link to={'/userpage'} className="you-card">
+    <div onClick={onClick} className="you-card">
         <div className="rank">{rank}</div>
         <div className="photo">
             <div className="overlay"></div>
-            <img src="/pp.png" alt="profile photo"/>
+            <img src={profileImage?profileImage:"/logo.png"} alt="profile photo"/>
         </div>
         <div className="name">{name}</div>
-    </Link>
+    </div>
   )
 }
 
@@ -18,6 +18,8 @@ const YouCard = ({name,rank}) => {
 YouCard.propTypes = {
   name: PropTypes.string.isRequired, // Ensures name is a string and required
   rank: PropTypes.number.isRequired, // Ensures age is a number and required
+  onClick: PropTypes.func,
+  profileImage: PropTypes.string,
 };
 
 export default YouCard
