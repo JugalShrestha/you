@@ -119,6 +119,7 @@ body{
                 align-items: center;
                 justify-content: center;
                 gap: var(--universal-gap);
+                white-space: nowrap;
                 .logo{
                     height: calc(var(--b-text) + 2vh);
                     width: fit-content;
@@ -451,10 +452,16 @@ body{
 @media (max-width:780px) {
     :root{
         --s-text: 1.7vh !important;
-        --b-text: 3vh !important;
+        --b-text: 2.5vh !important;
     }
     #everything{
         margin: 0 !important;
+        .search-page{
+            grid-template-columns: auto auto !important;
+            .you-card{
+                height: 15vh !important;
+            }
+        }
     }
 }
 

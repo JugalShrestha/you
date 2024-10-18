@@ -121,6 +121,7 @@ body #everything .You-Board .b-text {
   align-items: center;
   justify-content: center;
   gap: var(--universal-gap);
+  white-space: nowrap;
 }
 body #everything .You-Board .b-text .logo {
   height: calc(var(--b-text) + 2vh);
@@ -449,9 +450,15 @@ body #everything .login-page .added-work {
 @media (max-width: 780px) {
   :root {
     --s-text: 1.7vh !important;
-    --b-text: 3vh !important;
+    --b-text: 2.5vh !important;
   }
   #everything {
     margin: 0 !important;
+  }
+  #everything .search-page {
+    grid-template-columns: auto auto !important;
+  }
+  #everything .search-page .you-card {
+    height: 15vh !important;
   }
 }/*# sourceMappingURL=index.css.map */
