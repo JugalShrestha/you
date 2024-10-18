@@ -461,4 +461,8 @@ body #everything .login-page .added-work {
   #everything .search-page .you-card {
     height: 15vh !important;
   }
+  #everything .search-page .user-page .rank-bg .photo {
+    width: 15vh !important;
+    height: 15vh !important;
+  }
 }/*# sourceMappingURL=index.css.map */
